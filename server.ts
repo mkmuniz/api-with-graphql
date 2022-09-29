@@ -2,7 +2,7 @@ import express from 'express';
 import logger from 'morgan';
 const expressGraphQL = require('express-graphql').graphqlHTTP
 const { GraphQLSchema, GraphQLObjectType, GraphQLList, GraphQLString } = require('graphql');
-require('dotenv').config({ path: __dirname+'/.env' });
+require('dotenv').config({ path: __dirname + '/.env' });
 
 const app = express();
 const port: string | undefined = process.env.PORT;
@@ -17,8 +17,9 @@ const BookType = new GraphQLObjectType({
     description: 'This represents a book written by an author',
     fields: () => ({
         title: { type: GraphQLString },
+        author: { type: GraphQLString },
     }),
-    });
+});
 
 
 const schema = new GraphQLSchema({
@@ -38,7 +39,7 @@ app.use(express.json());
 app.use('/graphql', expressGraphQL({
     schema: schema,
     graphiql: true
-    }))
+}))
 app.use(logger('dev'));
 
 app.listen(port, () => {
