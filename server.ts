@@ -44,6 +44,10 @@ app.use('/graphql', expressGraphQL({
 }))
 app.use(logger('dev'));
 
+app.get('/', (req, res) => {
+    res.json({ message: "Backend is running"}).status(200);
+});
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
