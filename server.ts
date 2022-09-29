@@ -7,9 +7,10 @@ require('dotenv').config({ path: __dirname + '/.env' });
 const app = express();
 const port: string | undefined = process.env.PORT;
 
+//I know that this is not the best way to do it, but I'm just trying to get it to work
 const books = [
-    { title: 'Harry Potter and the Chamber of Secrets', author: 'J.K. Rowling' },
-    { title: 'Jurassic Park', author: 'Michael Crichton' },
+    { title: 'Harry Potter and the Chamber of Secrets', author: 'J.K. Rowling', date: '1998' },
+    { title: 'Jurassic Park', author: 'Michael Crichton', date: '1990' },
 ];
 
 const BookType = new GraphQLObjectType({
@@ -18,6 +19,7 @@ const BookType = new GraphQLObjectType({
     fields: () => ({
         title: { type: GraphQLString },
         author: { type: GraphQLString },
+        date: { type: GraphQLString },
     }),
 });
 
