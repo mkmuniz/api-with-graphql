@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
-    "start": "ts-node-dev --respawn --transpile-only ./server.ts",
+    "start": "ts-node-dev --respawn --transpile-only ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,10 +18,12 @@
   },
   "homepage": "https://github.com/worstp/api-with-graphql#readme",
   "dependencies": {
+    "apollo-server": "^3.11.1",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "express-graphql": "^0.12.0",
     "graphql": "^15.8.0",
+    "mongoose": "^6.7.3",
     "morgan": "^1.10.0",
     "typescript": "^4.8.4"
   },
